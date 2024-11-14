@@ -2,6 +2,8 @@ package com.loester.dslist.dto;
 
 import java.util.Objects;
 
+import org.springframework.beans.BeanUtils;
+
 import com.loester.dslist.entities.Game;
 
 public class GameMinDTO {
@@ -17,12 +19,7 @@ public class GameMinDTO {
 	}
 
 	public GameMinDTO(Game entity) {
-		this.id = entity.getId();
-		this.title = entity.getTitle();
-		this.year = entity.getYear();
-		this.imgUrl = entity.getImgUrl();
-		this.shortDescription = entity.getShortDescription();
-
+		BeanUtils.copyProperties(entity, this);
 	}
 
 	public Long getId() {

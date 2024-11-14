@@ -5,6 +5,7 @@ import java.util.Objects;
 import org.springframework.beans.BeanUtils;
 
 import com.loester.dslist.entities.Game;
+import com.loester.dslist.projections.GameMinProjection;
 
 public class GameMinDTO {
 
@@ -22,6 +23,10 @@ public class GameMinDTO {
 		BeanUtils.copyProperties(entity, this);
 	}
 
+	public GameMinDTO(GameMinProjection projection) {
+		BeanUtils.copyProperties(projection, this);
+	}
+	
 	public Long getId() {
 		return id;
 	}
